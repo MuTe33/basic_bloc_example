@@ -1,39 +1,39 @@
-import 'package:basic_bloc_example/feature/user/variant_2/user_cubit_2.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_1/user_cubit_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PageVariant2 extends StatelessWidget {
-  const PageVariant2({Key? key}) : super(key: key);
+class PageVariant1 extends StatelessWidget {
+  const PageVariant1({Key? key}) : super(key: key);
 
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => PageVariant2());
+    return MaterialPageRoute<void>(builder: (_) => PageVariant1());
   }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<UserCubit2>();
+    final cubit = context.watch<UserCubit1>();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Variant 2'),
+        title: Text('Cubit Variant 1'),
         centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<UserCubit2, UserState2>(
+            BlocBuilder<UserCubit1, UserState1>(
               builder: (context, state) {
-                switch (state.status) {
-                  case UserStatus.initial:
-                    return Text('Usercount: ${state.userCount}');
-                  case UserStatus.loading:
-                    return Text('LOADING');
-                  case UserStatus.success:
-                    return Text('Usercount: ${state.userCount}');
-                  case UserStatus.failure:
-                    return Text('ERROR :(');
+                if (state is UserInitial) {
+                  return Text('Usercount: ${state.userCount}');
+                } else if (state is UserLoadSuccess) {
+                  return Text('Usercount: ${state.userCount}');
+                } else if (state is UserLoading) {
+                  return Text('LOADING');
+                } else if (state is UserLoadFailure) {
+                  return Text('ERROR :(');
                 }
+                return Text('Huuuh, this should never be shown?');
               },
             ),
             SizedBox(height: 100),

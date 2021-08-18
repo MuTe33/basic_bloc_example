@@ -1,11 +1,14 @@
 import 'package:basic_bloc_example/data/user_repository.dart';
 import 'package:basic_bloc_example/example_bloc_observer.dart';
-import 'package:basic_bloc_example/feature/user/variant_1/user_cubit_1.dart';
-import 'package:basic_bloc_example/feature/user/variant_1/user_view_1.dart';
-import 'package:basic_bloc_example/feature/user/variant_2/user_cubit_2.dart';
-import 'package:basic_bloc_example/feature/user/variant_2/user_view_2.dart';
-import 'package:basic_bloc_example/feature/user/variant_3/user_cubit_3.dart';
-import 'package:basic_bloc_example/feature/user/variant_3/user_view_3.dart';
+import 'package:basic_bloc_example/feature/shopping_cart_example_bloc/cart/cart_bloc.dart';
+import 'package:basic_bloc_example/feature/shopping_cart_example_bloc/catalog/catalog_bloc.dart';
+import 'package:basic_bloc_example/feature/shopping_cart_example_bloc/shopping_cart_view.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_1/user_cubit_1.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_1/user_view_1.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_2/user_cubit_2.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_2/user_view_2.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_3/user_cubit_3.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_3/user_view_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,6 +35,8 @@ class BlocTestApp extends StatelessWidget {
         BlocProvider(create: (_) => UserCubit1(_userRepository)),
         BlocProvider(create: (_) => UserCubit2(_userRepository)),
         BlocProvider(create: (_) => UserCubit3(_userRepository)),
+        BlocProvider(create: (_) => CartBloc()),
+        BlocProvider(create: (_) => CatalogBloc()),
       ],
       child: BlocTestAppWidget(),
     );
@@ -50,20 +55,36 @@ class BlocTestAppWidget extends StatelessWidget {
       title: 'BLoC Library Test',
       home: Scaffold(
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              OutlinedButton(
-                onPressed: () => _navigator.push(PageVariant1.route()),
-                child: Text('Variant 1'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('BLoC Example'),
+                  OutlinedButton(
+                    onPressed: () => _navigator.push(ShoppingCartView.route()),
+                    child: Text('Shopping Cart View'),
+                  ),
+                ],
               ),
-              OutlinedButton(
-                onPressed: () => _navigator.push(PageVariant2.route()),
-                child: Text('Variant 2'),
-              ),
-              OutlinedButton(
-                onPressed: () => _navigator.push(PageVariant3.route()),
-                child: Text('Variant 3'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Cubit Examples'),
+                  OutlinedButton(
+                    onPressed: () => _navigator.push(PageVariant1.route()),
+                    child: Text('Variant 1'),
+                  ),
+                  OutlinedButton(
+                    onPressed: () => _navigator.push(PageVariant2.route()),
+                    child: Text('Variant 2'),
+                  ),
+                  OutlinedButton(
+                    onPressed: () => _navigator.push(PageVariant3.route()),
+                    child: Text('Variant 3'),
+                  ),
+                ],
               ),
             ],
           ),

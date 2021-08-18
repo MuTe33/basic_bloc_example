@@ -1,39 +1,39 @@
-import 'package:basic_bloc_example/feature/user/variant_1/user_cubit_1.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_3/user_cubit_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PageVariant1 extends StatelessWidget {
-  const PageVariant1({Key? key}) : super(key: key);
+class PageVariant3 extends StatelessWidget {
+  const PageVariant3({Key? key}) : super(key: key);
 
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => PageVariant1());
+    return MaterialPageRoute<void>(builder: (_) => PageVariant3());
   }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<UserCubit1>();
+    final cubit = context.watch<UserCubit3>();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Variant 1'),
+        title: Text('Cubit Variant 3'),
         centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<UserCubit1, UserState1>(
+            BlocBuilder<UserCubit3, UserState3>(
               builder: (context, state) {
-                if (state is UserInitial) {
-                  return Text('Usercount: ${state.userCount}');
-                } else if (state is UserLoadSuccess) {
-                  return Text('Usercount: ${state.userCount}');
-                } else if (state is UserLoading) {
-                  return Text('LOADING');
-                } else if (state is UserLoadFailure) {
-                  return Text('ERROR :(');
+                switch (state.status) {
+                  case UserStatus.initial:
+                    return Text('Usercount: ${state.userCount}');
+                  case UserStatus.loading:
+                    return Text('LOADING');
+                  case UserStatus.success:
+                    return Text('Usercount: ${state.userCount}');
+                  case UserStatus.failure:
+                    return Text('ERROR :(');
                 }
-                return Text('Huuuh, this should never be shown?');
               },
             ),
             SizedBox(height: 100),

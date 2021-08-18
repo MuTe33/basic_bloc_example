@@ -1,28 +1,28 @@
-import 'package:basic_bloc_example/feature/user/variant_3/user_cubit_3.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/variant_2/user_cubit_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PageVariant3 extends StatelessWidget {
-  const PageVariant3({Key? key}) : super(key: key);
+class PageVariant2 extends StatelessWidget {
+  const PageVariant2({Key? key}) : super(key: key);
 
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => PageVariant3());
+    return MaterialPageRoute<void>(builder: (_) => PageVariant2());
   }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<UserCubit3>();
+    final cubit = context.watch<UserCubit2>();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Variant 3'),
+        title: Text('Cubit Variant 2'),
         centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<UserCubit3, UserState3>(
+            BlocBuilder<UserCubit2, UserState2>(
               builder: (context, state) {
                 switch (state.status) {
                   case UserStatus.initial:
