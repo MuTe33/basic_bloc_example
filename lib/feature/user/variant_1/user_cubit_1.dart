@@ -1,5 +1,6 @@
 import 'package:basic_bloc_example/data/user_repository.dart';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 part 'user_state_1.dart';
