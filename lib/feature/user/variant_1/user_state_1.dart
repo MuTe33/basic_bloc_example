@@ -1,5 +1,6 @@
 part of 'user_cubit_1.dart';
 
+/// abstract class with multiple inherited states
 @immutable
 abstract class UserState1 {}
 

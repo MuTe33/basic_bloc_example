@@ -57,5 +57,5 @@ class UserCubit3 extends Cubit<UserState3> {
   }
 
   @override
-  String toString() => 'UserCubit2';
+  String toString() => 'UserCubit3';
 }

@@ -5,6 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PageVariant1 extends StatelessWidget {
   const PageVariant1({Key? key}) : super(key: key);
 
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => PageVariant1());
+  }
+
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<UserCubit1>();
@@ -41,18 +45,21 @@ class PageVariant1 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: Text("btn1"),
             onPressed: cubit.fetchUserCount,
             tooltip: 'usercount',
             child: Icon(Icons.add),
           ),
           SizedBox(height: 24),
           FloatingActionButton(
+            heroTag: Text("btn2"),
             onPressed: cubit.fetchAndFailUserCount,
             tooltip: 'error',
             child: Icon(Icons.error_outline),
           ),
           SizedBox(height: 24),
           FloatingActionButton(
+            heroTag: Text("btn3"),
             onPressed: cubit.reset,
             tooltip: 'reset',
             child: Icon(Icons.logout),

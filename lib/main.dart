@@ -1,7 +1,9 @@
 import 'package:basic_bloc_example/data/user_repository.dart';
 import 'package:basic_bloc_example/example_bloc_observer.dart';
 import 'package:basic_bloc_example/feature/user/variant_1/user_cubit_1.dart';
+import 'package:basic_bloc_example/feature/user/variant_1/user_view_1.dart';
 import 'package:basic_bloc_example/feature/user/variant_2/user_cubit_2.dart';
+import 'package:basic_bloc_example/feature/user/variant_2/user_view_2.dart';
 import 'package:basic_bloc_example/feature/user/variant_3/user_cubit_3.dart';
 import 'package:basic_bloc_example/feature/user/variant_3/user_view_3.dart';
 import 'package:flutter/material.dart';
@@ -25,18 +27,47 @@ class BlocTestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => UserCubit1(_userRepository)),
+        BlocProvider(create: (_) => UserCubit2(_userRepository)),
+        BlocProvider(create: (_) => UserCubit3(_userRepository)),
+      ],
+      child: BlocTestAppWidget(),
+    );
+  }
+}
+
+class BlocTestAppWidget extends StatelessWidget {
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
+  NavigatorState get _navigator => _navigatorKey.currentState!;
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Testing BLoC Library',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => UserCubit1(_userRepository)),
-          BlocProvider(create: (_) => UserCubit2(_userRepository)),
-          BlocProvider(create: (_) => UserCubit3(_userRepository)),
-        ],
-        child: PageVariant3(),
+      navigatorKey: _navigatorKey,
+      title: 'BLoC Library Test',
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OutlinedButton(
+                onPressed: () => _navigator.push(PageVariant1.route()),
+                child: Text('Variant 1'),
+              ),
+              OutlinedButton(
+                onPressed: () => _navigator.push(PageVariant2.route()),
+                child: Text('Variant 2'),
+              ),
+              OutlinedButton(
+                onPressed: () => _navigator.push(PageVariant3.route()),
+                child: Text('Variant 3'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

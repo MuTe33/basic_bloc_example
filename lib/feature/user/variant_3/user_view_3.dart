@@ -5,6 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PageVariant3 extends StatelessWidget {
   const PageVariant3({Key? key}) : super(key: key);
 
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => PageVariant3());
+  }
+
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<UserCubit3>();
@@ -22,16 +26,12 @@ class PageVariant3 extends StatelessWidget {
               builder: (context, state) {
                 switch (state.status) {
                   case UserStatus.initial:
-                    print('initial');
                     return Text('Usercount: ${state.userCount}');
                   case UserStatus.loading:
-                    print('loading');
                     return Text('LOADING');
                   case UserStatus.success:
-                    print('success');
                     return Text('Usercount: ${state.userCount}');
                   case UserStatus.failure:
-                    print('failure');
                     return Text('ERROR :(');
                 }
               },
@@ -45,18 +45,21 @@ class PageVariant3 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: Text("btn1"),
             onPressed: cubit.fetchUserCount,
             tooltip: 'usercount',
             child: Icon(Icons.add),
           ),
           SizedBox(height: 24),
           FloatingActionButton(
+            heroTag: Text("btn2"),
             onPressed: cubit.fetchAndFailUserCount,
             tooltip: 'error',
             child: Icon(Icons.error_outline),
           ),
           SizedBox(height: 24),
           FloatingActionButton(
+            heroTag: Text("btn3"),
             onPressed: cubit.reset,
             tooltip: 'reset',
             child: Icon(Icons.logout),
