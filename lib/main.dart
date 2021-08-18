@@ -2,7 +2,8 @@ import 'package:basic_bloc_example/data/user_repository.dart';
 import 'package:basic_bloc_example/example_bloc_observer.dart';
 import 'package:basic_bloc_example/feature/user/variant_1/user_cubit_1.dart';
 import 'package:basic_bloc_example/feature/user/variant_2/user_cubit_2.dart';
-import 'package:basic_bloc_example/feature/user/variant_2/user_view_2.dart';
+import 'package:basic_bloc_example/feature/user/variant_3/user_cubit_3.dart';
+import 'package:basic_bloc_example/feature/user/variant_3/user_view_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,8 +34,9 @@ class BlocTestApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (_) => UserCubit1(_userRepository)),
           BlocProvider(create: (_) => UserCubit2(_userRepository)),
+          BlocProvider(create: (_) => UserCubit3(_userRepository)),
         ],
-        child: PageVariant2(),
+        child: PageVariant3(),
       ),
     );
   }
