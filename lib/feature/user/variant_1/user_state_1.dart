@@ -2,7 +2,9 @@ part of 'user_cubit_1.dart';
 
 /// abstract class with multiple inherited states
 @immutable
-abstract class UserState1 extends Equatable {}
+abstract class UserState1 extends Equatable {
+  const UserState1();
+}
 
 class UserInitial extends UserState1 {
   UserInitial({this.userCount = 0});
