@@ -5,7 +5,11 @@ import 'package:equatable/equatable.dart';
 part 'user_state_2.dart';
 
 class UserCubit2 extends Cubit<UserState2> {
-  UserCubit2(this._userRepository) : super(UserState2());
+  UserCubit2(this._userRepository)
+      : super(UserState2(
+          userCount: 0,
+          status: UserStatus.initial,
+        ));
 
   final UserRepository _userRepository;
 
@@ -22,14 +26,11 @@ class UserCubit2 extends Cubit<UserState2> {
 
   // mock a failure
   Future<void> fetchAndFailUserCount() async {
-    print('1');
     emit(state.copyWith(status: UserStatus.loading));
     try {
-      print('2');
       await Future.delayed(const Duration(seconds: 2));
       throw ('>>> Ups, something went wrong <<<');
     } catch (e) {
-      print('3');
       emit(state.copyWith(status: UserStatus.failure));
     }
   }

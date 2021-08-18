@@ -4,8 +4,8 @@ enum UserStatus { initial, loading, success, failure }
 
 class UserState2 extends Equatable {
   UserState2({
-    this.userCount = 0,
-    this.status = UserStatus.initial,
+    required this.userCount,
+    required this.status,
   });
 
   final int userCount;
@@ -22,7 +22,7 @@ class UserState2 extends Equatable {
   }
 
   @override
-  List<Object?> get props => [userCount];
+  List<Object?> get props => [userCount, status];
 
   @override
   String toString() {
