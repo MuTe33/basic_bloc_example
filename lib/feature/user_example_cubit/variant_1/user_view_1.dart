@@ -22,22 +22,13 @@ class PageVariant1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<UserCubit1, UserState1>(
-              builder: (context, state) {
-                if (state is UserInitial) {
-                  return Text('Usercount: ${state.userCount}');
-                } else if (state is UserLoadSuccess) {
-                  return Text('Usercount: ${state.userCount}');
-                } else if (state is UserLoading) {
-                  return Text('LOADING');
-                } else if (state is UserLoadFailure) {
-                  return Text('ERROR :(');
-                }
-                return Text('Huuuh, this should never be shown?');
-              },
+            cubit.state.when(
+              success: (user) => Text('Sucess: ${user.userCount}'),
+              initial: (user) =>
+                  Text('Initial: ${user?.userCount ?? 'No initial'}'),
+              loading: () => Text('Loading...'),
+              failure: (message) => Text('Failure: $message'),
             ),
-            SizedBox(height: 100),
-            Text('Some unrelated stuff'),
           ],
         ),
       ),

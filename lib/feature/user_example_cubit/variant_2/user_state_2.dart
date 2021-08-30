@@ -3,7 +3,7 @@ part of 'user_cubit_2.dart';
 enum UserStatus { initial, loading, success, failure }
 
 /// using equatable and copyWith + enum
-class UserState2 extends Equatable {
+class UserState2 {
   UserState2({
     required this.userCount,
     required this.status,

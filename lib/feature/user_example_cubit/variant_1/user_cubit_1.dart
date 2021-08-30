@@ -1,40 +1,41 @@
 import 'package:basic_bloc_example/data/user_repository.dart';
+import 'package:basic_bloc_example/feature/user_example_cubit/model/user_model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'user_cubit_1.freezed.dart';
 part 'user_state_1.dart';
 
 class UserCubit1 extends Cubit<UserState1> {
-  UserCubit1(this._userRepository) : super(UserInitial());
+  UserCubit1(this._userRepository) : super(UserState1Initial());
 
   final UserRepository _userRepository;
 
   Future<void> fetchUserCount() async {
-    emit(UserLoading());
+    emit(UserState1Loading());
 
     final userAmount = await _userRepository.fetchUserAmount();
 
-    emit(UserLoadSuccess(userAmount));
+    emit(UserState1Success(user: User(userCount: userAmount)));
   }
 
   // mock a failure
   Future<void> fetchAndFailUserCount() async {
-    emit(UserLoading());
+    emit(UserState1Loading());
     try {
       await Future.delayed(const Duration(seconds: 2));
       throw ('>>> Ups, something went wrong <<<');
     } catch (e) {
-      emit(UserLoadFailure());
+      emit(UserState1Failure(message: 'Fetch failed'));
     }
   }
 
   Future<void> reset() async {
-    emit(UserLoading());
+    emit(UserState1Loading());
 
     await Future.delayed(const Duration(seconds: 2));
 
-    emit(UserInitial());
+    emit(UserState1Initial());
   }
 
   // when addError() is called within bloc/cubit this method gets executed

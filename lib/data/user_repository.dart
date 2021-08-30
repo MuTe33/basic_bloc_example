@@ -34,11 +34,11 @@ class UserRepository {
   UserExceptionResult checkResponse<T>(dio.Response<T> response) {
     if (response.statusCode == 200) {
       //do mapping before than return data
-      return UserExceptionResult.success(response.data);
+      return UserExceptionResult.success(data: response.data);
     } else if (response.statusCode == 420) {
       return UserExceptionResult.errorMalformedUserList(
           message: 'User List is malformed');
-    } else if (response.statusCode == 420) {
+    } else if (response.statusCode == 410) {
       return UserExceptionResult.errorUserListNotFound(
           message: 'User List not found');
     } else {

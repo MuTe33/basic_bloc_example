@@ -1,47 +1,10 @@
 part of 'user_cubit_1.dart';
 
-/// abstract class with multiple inherited states
-@immutable
-abstract class UserState1 extends Equatable {
-  const UserState1();
-}
-
-class UserInitial extends UserState1 {
-  UserInitial({this.userCount = 0});
-
-  final int userCount;
-
-  @override
-  List<Object?> get props => [userCount];
-
-  @override
-  String toString() => 'UserInitial(userCount: $userCount)';
-}
-
-class UserLoadSuccess extends UserState1 {
-  UserLoadSuccess(this.userCount);
-
-  final int userCount;
-
-  @override
-  List<Object?> get props => [userCount];
-
-  @override
-  String toString() => 'UserLoadSuccess(userCount: $userCount)';
-}
-
-class UserLoadFailure extends UserState1 {
-  @override
-  List<Object?> get props => [];
-
-  @override
-  String toString() => 'UserLoadFailure';
-}
-
-class UserLoading extends UserState1 {
-  @override
-  List<Object?> get props => [];
-
-  @override
-  String toString() => 'UserLoading';
+@freezed
+class UserState1 with _$UserState1 {
+  factory UserState1.success({required User user}) = UserState1Success;
+  factory UserState1.initial([@Default(null) User? user]) = UserState1Initial;
+  factory UserState1.loading() = UserState1Loading;
+  //potenziell mehrere Failure cases, Repo abhängig
+  factory UserState1.failure({required String message}) = UserState1Failure;
 }

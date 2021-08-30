@@ -1,6 +1,5 @@
 import 'package:basic_bloc_example/data/user_repository.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
 part 'user_state_2.dart';
 
@@ -40,7 +39,7 @@ class UserCubit2 extends Cubit<UserState2> {
 
     await Future.delayed(const Duration(seconds: 2));
 
-    emit(state.copyWith(
+    emit(UserState2(
       userCount: 0,
       status: UserStatus.initial,
     ));

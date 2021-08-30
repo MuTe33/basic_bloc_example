@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user_exception_result.dart';
 
@@ -9,87 +9,86 @@ part of 'user_exception_result.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$UserExceptionResultTearOff {
   const _$UserExceptionResultTearOff();
 
-// ignore: unused_element
-  UserExceptionResultSuccess<T> success<T>(T data) {
+  UserExceptionResultSuccess<T> success<T>({required T data}) {
     return UserExceptionResultSuccess<T>(
-      data,
+      data: data,
     );
   }
 
-// ignore: unused_element
   UserExceptionResultErrorUserListNotFound<T> errorUserListNotFound<T>(
-      {String message, int statusCode}) {
+      {required String message}) {
     return UserExceptionResultErrorUserListNotFound<T>(
       message: message,
-      statusCode: statusCode,
     );
   }
 
-// ignore: unused_element
   UserExceptionResultErrorMalformedUserList<T> errorMalformedUserList<T>(
-      {String message, int statusCode}) {
+      {required String message}) {
     return UserExceptionResultErrorMalformedUserList<T>(
       message: message,
-      statusCode: statusCode,
     );
   }
 
-// ignore: unused_element
   UserExceptionResultErrorGeneral<T> errorGeneral<T>(
-      {String message, int statusCode}) {
+      {required String message}) {
     return UserExceptionResultErrorGeneral<T>(
       message: message,
-      statusCode: statusCode,
     );
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserExceptionResult = _$UserExceptionResultTearOff();
 
 /// @nodoc
 mixin _$UserExceptionResult<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult errorUserListNotFound(String message, int statusCode),
-    @required TResult errorMalformedUserList(String message, int statusCode),
-    @required TResult errorGeneral(String message, int statusCode),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(String message) errorUserListNotFound,
+    required TResult Function(String message) errorMalformedUserList,
+    required TResult Function(String message) errorGeneral,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult errorUserListNotFound(String message, int statusCode),
-    TResult errorMalformedUserList(String message, int statusCode),
-    TResult errorGeneral(String message, int statusCode),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(String message)? errorUserListNotFound,
+    TResult Function(String message)? errorMalformedUserList,
+    TResult Function(String message)? errorGeneral,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(UserExceptionResultSuccess<T> value),
-    @required
-        TResult errorUserListNotFound(
-            UserExceptionResultErrorUserListNotFound<T> value),
-    @required
-        TResult errorMalformedUserList(
-            UserExceptionResultErrorMalformedUserList<T> value),
-    @required TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserExceptionResultSuccess<T> value) success,
+    required TResult Function(UserExceptionResultErrorUserListNotFound<T> value)
+        errorUserListNotFound,
+    required TResult Function(
+            UserExceptionResultErrorMalformedUserList<T> value)
+        errorMalformedUserList,
+    required TResult Function(UserExceptionResultErrorGeneral<T> value)
+        errorGeneral,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(UserExceptionResultSuccess<T> value),
-    TResult errorUserListNotFound(
-        UserExceptionResultErrorUserListNotFound<T> value),
-    TResult errorMalformedUserList(
-        UserExceptionResultErrorMalformedUserList<T> value),
-    TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserExceptionResultSuccess<T> value)? success,
+    TResult Function(UserExceptionResultErrorUserListNotFound<T> value)?
+        errorUserListNotFound,
+    TResult Function(UserExceptionResultErrorMalformedUserList<T> value)?
+        errorMalformedUserList,
+    TResult Function(UserExceptionResultErrorGeneral<T> value)? errorGeneral,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -132,17 +131,21 @@ class _$UserExceptionResultSuccessCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object? data = freezed,
   }) {
     return _then(UserExceptionResultSuccess<T>(
-      data == freezed ? _value.data : data as T,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UserExceptionResultSuccess<T> implements UserExceptionResultSuccess<T> {
-  _$UserExceptionResultSuccess(this.data) : assert(data != null);
+  _$UserExceptionResultSuccess({required this.data});
 
   @override
   final T data;
@@ -172,29 +175,24 @@ class _$UserExceptionResultSuccess<T> implements UserExceptionResultSuccess<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult errorUserListNotFound(String message, int statusCode),
-    @required TResult errorMalformedUserList(String message, int statusCode),
-    @required TResult errorGeneral(String message, int statusCode),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(String message) errorUserListNotFound,
+    required TResult Function(String message) errorMalformedUserList,
+    required TResult Function(String message) errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
     return success(data);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult errorUserListNotFound(String message, int statusCode),
-    TResult errorMalformedUserList(String message, int statusCode),
-    TResult errorGeneral(String message, int statusCode),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(String message)? errorUserListNotFound,
+    TResult Function(String message)? errorMalformedUserList,
+    TResult Function(String message)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(data);
     }
@@ -203,35 +201,30 @@ class _$UserExceptionResultSuccess<T> implements UserExceptionResultSuccess<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(UserExceptionResultSuccess<T> value),
-    @required
-        TResult errorUserListNotFound(
-            UserExceptionResultErrorUserListNotFound<T> value),
-    @required
-        TResult errorMalformedUserList(
-            UserExceptionResultErrorMalformedUserList<T> value),
-    @required TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserExceptionResultSuccess<T> value) success,
+    required TResult Function(UserExceptionResultErrorUserListNotFound<T> value)
+        errorUserListNotFound,
+    required TResult Function(
+            UserExceptionResultErrorMalformedUserList<T> value)
+        errorMalformedUserList,
+    required TResult Function(UserExceptionResultErrorGeneral<T> value)
+        errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(UserExceptionResultSuccess<T> value),
-    TResult errorUserListNotFound(
-        UserExceptionResultErrorUserListNotFound<T> value),
-    TResult errorMalformedUserList(
-        UserExceptionResultErrorMalformedUserList<T> value),
-    TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserExceptionResultSuccess<T> value)? success,
+    TResult Function(UserExceptionResultErrorUserListNotFound<T> value)?
+        errorUserListNotFound,
+    TResult Function(UserExceptionResultErrorMalformedUserList<T> value)?
+        errorMalformedUserList,
+    TResult Function(UserExceptionResultErrorGeneral<T> value)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }
@@ -240,12 +233,13 @@ class _$UserExceptionResultSuccess<T> implements UserExceptionResultSuccess<T> {
 }
 
 abstract class UserExceptionResultSuccess<T> implements UserExceptionResult<T> {
-  factory UserExceptionResultSuccess(T data) = _$UserExceptionResultSuccess<T>;
+  factory UserExceptionResultSuccess({required T data}) =
+      _$UserExceptionResultSuccess<T>;
 
-  T get data;
+  T get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserExceptionResultSuccessCopyWith<T, UserExceptionResultSuccess<T>>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -254,7 +248,7 @@ abstract class $UserExceptionResultErrorUserListNotFoundCopyWith<T, $Res> {
           UserExceptionResultErrorUserListNotFound<T> value,
           $Res Function(UserExceptionResultErrorUserListNotFound<T>) then) =
       _$UserExceptionResultErrorUserListNotFoundCopyWithImpl<T, $Res>;
-  $Res call({String message, int statusCode});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -273,29 +267,29 @@ class _$UserExceptionResultErrorUserListNotFoundCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object message = freezed,
-    Object statusCode = freezed,
+    Object? message = freezed,
   }) {
     return _then(UserExceptionResultErrorUserListNotFound<T>(
-      message: message == freezed ? _value.message : message as String,
-      statusCode: statusCode == freezed ? _value.statusCode : statusCode as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UserExceptionResultErrorUserListNotFound<T>
     implements UserExceptionResultErrorUserListNotFound<T> {
-  _$UserExceptionResultErrorUserListNotFound({this.message, this.statusCode});
+  _$UserExceptionResultErrorUserListNotFound({required this.message});
 
   @override
   final String message;
-  @override
-  final int statusCode;
 
   @override
   String toString() {
-    return 'UserExceptionResult<$T>.errorUserListNotFound(message: $message, statusCode: $statusCode)';
+    return 'UserExceptionResult<$T>.errorUserListNotFound(message: $message)';
   }
 
   @override
@@ -303,18 +297,12 @@ class _$UserExceptionResultErrorUserListNotFound<T>
     return identical(this, other) ||
         (other is UserExceptionResultErrorUserListNotFound<T> &&
             (identical(other.message, message) ||
-                const DeepCollectionEquality()
-                    .equals(other.message, message)) &&
-            (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusCode, statusCode)));
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(statusCode);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @JsonKey(ignore: true)
   @override
@@ -325,66 +313,56 @@ class _$UserExceptionResultErrorUserListNotFound<T>
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult errorUserListNotFound(String message, int statusCode),
-    @required TResult errorMalformedUserList(String message, int statusCode),
-    @required TResult errorGeneral(String message, int statusCode),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(String message) errorUserListNotFound,
+    required TResult Function(String message) errorMalformedUserList,
+    required TResult Function(String message) errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
-    return errorUserListNotFound(message, statusCode);
+    return errorUserListNotFound(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult errorUserListNotFound(String message, int statusCode),
-    TResult errorMalformedUserList(String message, int statusCode),
-    TResult errorGeneral(String message, int statusCode),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(String message)? errorUserListNotFound,
+    TResult Function(String message)? errorMalformedUserList,
+    TResult Function(String message)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorUserListNotFound != null) {
-      return errorUserListNotFound(message, statusCode);
+      return errorUserListNotFound(message);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(UserExceptionResultSuccess<T> value),
-    @required
-        TResult errorUserListNotFound(
-            UserExceptionResultErrorUserListNotFound<T> value),
-    @required
-        TResult errorMalformedUserList(
-            UserExceptionResultErrorMalformedUserList<T> value),
-    @required TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserExceptionResultSuccess<T> value) success,
+    required TResult Function(UserExceptionResultErrorUserListNotFound<T> value)
+        errorUserListNotFound,
+    required TResult Function(
+            UserExceptionResultErrorMalformedUserList<T> value)
+        errorMalformedUserList,
+    required TResult Function(UserExceptionResultErrorGeneral<T> value)
+        errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
     return errorUserListNotFound(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(UserExceptionResultSuccess<T> value),
-    TResult errorUserListNotFound(
-        UserExceptionResultErrorUserListNotFound<T> value),
-    TResult errorMalformedUserList(
-        UserExceptionResultErrorMalformedUserList<T> value),
-    TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserExceptionResultSuccess<T> value)? success,
+    TResult Function(UserExceptionResultErrorUserListNotFound<T> value)?
+        errorUserListNotFound,
+    TResult Function(UserExceptionResultErrorMalformedUserList<T> value)?
+        errorMalformedUserList,
+    TResult Function(UserExceptionResultErrorGeneral<T> value)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorUserListNotFound != null) {
       return errorUserListNotFound(this);
     }
@@ -394,15 +372,14 @@ class _$UserExceptionResultErrorUserListNotFound<T>
 
 abstract class UserExceptionResultErrorUserListNotFound<T>
     implements UserExceptionResult<T> {
-  factory UserExceptionResultErrorUserListNotFound(
-      {String message,
-      int statusCode}) = _$UserExceptionResultErrorUserListNotFound<T>;
+  factory UserExceptionResultErrorUserListNotFound({required String message}) =
+      _$UserExceptionResultErrorUserListNotFound<T>;
 
-  String get message;
-  int get statusCode;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserExceptionResultErrorUserListNotFoundCopyWith<T,
-      UserExceptionResultErrorUserListNotFound<T>> get copyWith;
+          UserExceptionResultErrorUserListNotFound<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -411,7 +388,7 @@ abstract class $UserExceptionResultErrorMalformedUserListCopyWith<T, $Res> {
           UserExceptionResultErrorMalformedUserList<T> value,
           $Res Function(UserExceptionResultErrorMalformedUserList<T>) then) =
       _$UserExceptionResultErrorMalformedUserListCopyWithImpl<T, $Res>;
-  $Res call({String message, int statusCode});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -430,29 +407,29 @@ class _$UserExceptionResultErrorMalformedUserListCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object message = freezed,
-    Object statusCode = freezed,
+    Object? message = freezed,
   }) {
     return _then(UserExceptionResultErrorMalformedUserList<T>(
-      message: message == freezed ? _value.message : message as String,
-      statusCode: statusCode == freezed ? _value.statusCode : statusCode as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UserExceptionResultErrorMalformedUserList<T>
     implements UserExceptionResultErrorMalformedUserList<T> {
-  _$UserExceptionResultErrorMalformedUserList({this.message, this.statusCode});
+  _$UserExceptionResultErrorMalformedUserList({required this.message});
 
   @override
   final String message;
-  @override
-  final int statusCode;
 
   @override
   String toString() {
-    return 'UserExceptionResult<$T>.errorMalformedUserList(message: $message, statusCode: $statusCode)';
+    return 'UserExceptionResult<$T>.errorMalformedUserList(message: $message)';
   }
 
   @override
@@ -460,18 +437,12 @@ class _$UserExceptionResultErrorMalformedUserList<T>
     return identical(this, other) ||
         (other is UserExceptionResultErrorMalformedUserList<T> &&
             (identical(other.message, message) ||
-                const DeepCollectionEquality()
-                    .equals(other.message, message)) &&
-            (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusCode, statusCode)));
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(statusCode);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @JsonKey(ignore: true)
   @override
@@ -482,66 +453,56 @@ class _$UserExceptionResultErrorMalformedUserList<T>
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult errorUserListNotFound(String message, int statusCode),
-    @required TResult errorMalformedUserList(String message, int statusCode),
-    @required TResult errorGeneral(String message, int statusCode),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(String message) errorUserListNotFound,
+    required TResult Function(String message) errorMalformedUserList,
+    required TResult Function(String message) errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
-    return errorMalformedUserList(message, statusCode);
+    return errorMalformedUserList(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult errorUserListNotFound(String message, int statusCode),
-    TResult errorMalformedUserList(String message, int statusCode),
-    TResult errorGeneral(String message, int statusCode),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(String message)? errorUserListNotFound,
+    TResult Function(String message)? errorMalformedUserList,
+    TResult Function(String message)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorMalformedUserList != null) {
-      return errorMalformedUserList(message, statusCode);
+      return errorMalformedUserList(message);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(UserExceptionResultSuccess<T> value),
-    @required
-        TResult errorUserListNotFound(
-            UserExceptionResultErrorUserListNotFound<T> value),
-    @required
-        TResult errorMalformedUserList(
-            UserExceptionResultErrorMalformedUserList<T> value),
-    @required TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserExceptionResultSuccess<T> value) success,
+    required TResult Function(UserExceptionResultErrorUserListNotFound<T> value)
+        errorUserListNotFound,
+    required TResult Function(
+            UserExceptionResultErrorMalformedUserList<T> value)
+        errorMalformedUserList,
+    required TResult Function(UserExceptionResultErrorGeneral<T> value)
+        errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
     return errorMalformedUserList(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(UserExceptionResultSuccess<T> value),
-    TResult errorUserListNotFound(
-        UserExceptionResultErrorUserListNotFound<T> value),
-    TResult errorMalformedUserList(
-        UserExceptionResultErrorMalformedUserList<T> value),
-    TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserExceptionResultSuccess<T> value)? success,
+    TResult Function(UserExceptionResultErrorUserListNotFound<T> value)?
+        errorUserListNotFound,
+    TResult Function(UserExceptionResultErrorMalformedUserList<T> value)?
+        errorMalformedUserList,
+    TResult Function(UserExceptionResultErrorGeneral<T> value)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorMalformedUserList != null) {
       return errorMalformedUserList(this);
     }
@@ -551,15 +512,14 @@ class _$UserExceptionResultErrorMalformedUserList<T>
 
 abstract class UserExceptionResultErrorMalformedUserList<T>
     implements UserExceptionResult<T> {
-  factory UserExceptionResultErrorMalformedUserList(
-      {String message,
-      int statusCode}) = _$UserExceptionResultErrorMalformedUserList<T>;
+  factory UserExceptionResultErrorMalformedUserList({required String message}) =
+      _$UserExceptionResultErrorMalformedUserList<T>;
 
-  String get message;
-  int get statusCode;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserExceptionResultErrorMalformedUserListCopyWith<T,
-      UserExceptionResultErrorMalformedUserList<T>> get copyWith;
+          UserExceptionResultErrorMalformedUserList<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -568,7 +528,7 @@ abstract class $UserExceptionResultErrorGeneralCopyWith<T, $Res> {
           UserExceptionResultErrorGeneral<T> value,
           $Res Function(UserExceptionResultErrorGeneral<T>) then) =
       _$UserExceptionResultErrorGeneralCopyWithImpl<T, $Res>;
-  $Res call({String message, int statusCode});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -586,29 +546,29 @@ class _$UserExceptionResultErrorGeneralCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object message = freezed,
-    Object statusCode = freezed,
+    Object? message = freezed,
   }) {
     return _then(UserExceptionResultErrorGeneral<T>(
-      message: message == freezed ? _value.message : message as String,
-      statusCode: statusCode == freezed ? _value.statusCode : statusCode as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UserExceptionResultErrorGeneral<T>
     implements UserExceptionResultErrorGeneral<T> {
-  _$UserExceptionResultErrorGeneral({this.message, this.statusCode});
+  _$UserExceptionResultErrorGeneral({required this.message});
 
   @override
   final String message;
-  @override
-  final int statusCode;
 
   @override
   String toString() {
-    return 'UserExceptionResult<$T>.errorGeneral(message: $message, statusCode: $statusCode)';
+    return 'UserExceptionResult<$T>.errorGeneral(message: $message)';
   }
 
   @override
@@ -616,18 +576,12 @@ class _$UserExceptionResultErrorGeneral<T>
     return identical(this, other) ||
         (other is UserExceptionResultErrorGeneral<T> &&
             (identical(other.message, message) ||
-                const DeepCollectionEquality()
-                    .equals(other.message, message)) &&
-            (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusCode, statusCode)));
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(statusCode);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
   @JsonKey(ignore: true)
   @override
@@ -638,66 +592,56 @@ class _$UserExceptionResultErrorGeneral<T>
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult errorUserListNotFound(String message, int statusCode),
-    @required TResult errorMalformedUserList(String message, int statusCode),
-    @required TResult errorGeneral(String message, int statusCode),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(String message) errorUserListNotFound,
+    required TResult Function(String message) errorMalformedUserList,
+    required TResult Function(String message) errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
-    return errorGeneral(message, statusCode);
+    return errorGeneral(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult errorUserListNotFound(String message, int statusCode),
-    TResult errorMalformedUserList(String message, int statusCode),
-    TResult errorGeneral(String message, int statusCode),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(String message)? errorUserListNotFound,
+    TResult Function(String message)? errorMalformedUserList,
+    TResult Function(String message)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorGeneral != null) {
-      return errorGeneral(message, statusCode);
+      return errorGeneral(message);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(UserExceptionResultSuccess<T> value),
-    @required
-        TResult errorUserListNotFound(
-            UserExceptionResultErrorUserListNotFound<T> value),
-    @required
-        TResult errorMalformedUserList(
-            UserExceptionResultErrorMalformedUserList<T> value),
-    @required TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserExceptionResultSuccess<T> value) success,
+    required TResult Function(UserExceptionResultErrorUserListNotFound<T> value)
+        errorUserListNotFound,
+    required TResult Function(
+            UserExceptionResultErrorMalformedUserList<T> value)
+        errorMalformedUserList,
+    required TResult Function(UserExceptionResultErrorGeneral<T> value)
+        errorGeneral,
   }) {
-    assert(success != null);
-    assert(errorUserListNotFound != null);
-    assert(errorMalformedUserList != null);
-    assert(errorGeneral != null);
     return errorGeneral(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(UserExceptionResultSuccess<T> value),
-    TResult errorUserListNotFound(
-        UserExceptionResultErrorUserListNotFound<T> value),
-    TResult errorMalformedUserList(
-        UserExceptionResultErrorMalformedUserList<T> value),
-    TResult errorGeneral(UserExceptionResultErrorGeneral<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserExceptionResultSuccess<T> value)? success,
+    TResult Function(UserExceptionResultErrorUserListNotFound<T> value)?
+        errorUserListNotFound,
+    TResult Function(UserExceptionResultErrorMalformedUserList<T> value)?
+        errorMalformedUserList,
+    TResult Function(UserExceptionResultErrorGeneral<T> value)? errorGeneral,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorGeneral != null) {
       return errorGeneral(this);
     }
@@ -707,12 +651,12 @@ class _$UserExceptionResultErrorGeneral<T>
 
 abstract class UserExceptionResultErrorGeneral<T>
     implements UserExceptionResult<T> {
-  factory UserExceptionResultErrorGeneral({String message, int statusCode}) =
+  factory UserExceptionResultErrorGeneral({required String message}) =
       _$UserExceptionResultErrorGeneral<T>;
 
-  String get message;
-  int get statusCode;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserExceptionResultErrorGeneralCopyWith<T,
-      UserExceptionResultErrorGeneral<T>> get copyWith;
+          UserExceptionResultErrorGeneral<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

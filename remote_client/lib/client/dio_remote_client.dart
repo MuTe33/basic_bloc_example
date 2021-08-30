@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:remote_client/client/remote_client_base.dart';
 import 'package:remote_client/exception/server_failure_exception.dart';
-import 'package:remote_client/exception/unkown_server_failure_exception.dart';
 
 class DioRemoteClient implements RemoteClientBase {
   DioRemoteClient(this._dio);
@@ -25,8 +24,6 @@ class DioRemoteClient implements RemoteClientBase {
         message: e.message,
         statusCode: e.response?.statusCode,
       );
-    } catch (e) {
-      throw UnknownServerFailureException();
     }
   }
 
@@ -49,8 +46,6 @@ class DioRemoteClient implements RemoteClientBase {
         message: e.message,
         statusCode: e.response?.statusCode,
       );
-    } catch (e) {
-      throw UnknownServerFailureException();
     }
   }
 }
