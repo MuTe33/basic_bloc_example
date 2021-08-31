@@ -9,6 +9,8 @@ class PageVariant1 extends StatelessWidget {
     return MaterialPageRoute<void>(builder: (_) => PageVariant1());
   }
 
+  //TODO 1: built a provider widget for providing cubit to widget tree
+  //TODO 2: use auto route with wrapper widget to provider cubit
   @override
   Widget build(BuildContext context) {
     final cubit = context.watch<UserCubit1>();

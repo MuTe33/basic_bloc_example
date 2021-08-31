@@ -1,5 +1,6 @@
 import 'package:basic_bloc_example/data/user_exception_result.dart';
 import 'package:dio/dio.dart' as dio;
+import 'package:dio/dio.dart';
 import 'package:remote_client/client/dio_remote_client.dart';
 import 'package:remote_client/client/remote_client_base.dart';
 
@@ -11,6 +12,7 @@ class UserRepository {
 
   final RemoteClientBase _remoteClient;
 
+  //TODO: don't do this here, should be in remote client module
   Future<String?> _getApiIdKey() => Future.value("65416");
 
   Future<int> fetchUserAmount() async {
@@ -20,21 +22,30 @@ class UserRepository {
   }
 
   Future<UserExceptionResult> fetchUserNames() async {
-    final response = await _remoteClient.get<List<String>>(
-      _baseURL + 'namesList',
-      queryParameters: {
-        'amount': 50,
-        'appid': await _getApiIdKey(),
-      },
-    );
+    try {
+      final response = await _remoteClient.get<List<String>>(
+        _baseURL + 'namesList',
+        queryParameters: {
+          'amount': 50,
+          'appid': await _getApiIdKey(),
+        },
+      );
 
-    return checkResponse(response);
-  }
-
-  UserExceptionResult checkResponse<T>(dio.Response<T> response) {
-    if (response.statusCode == 200) {
       //do mapping before than return data
       return UserExceptionResult.success(data: response.data);
+    } on DioError catch (e) {
+      return checkResponse(e.response);
+    } catch (e) {
+      // catch all other error i.e. mapping
+      // log error to get insights --> better log in bloc observer onError()
+      // otherwise those errors are just going to be lost --> bad UX
+      return UserExceptionResult.errorGeneral(message: 'Something went wrong');
+    }
+  }
+
+  UserExceptionResult checkResponse<T>(dio.Response? response) {
+    if (response == null) {
+      return UserExceptionResult.errorGeneral(message: 'Something went wrong');
     } else if (response.statusCode == 420) {
       return UserExceptionResult.errorMalformedUserList(
           message: 'User List is malformed');

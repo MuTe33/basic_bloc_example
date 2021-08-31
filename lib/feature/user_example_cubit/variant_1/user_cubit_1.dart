@@ -7,9 +7,12 @@ part 'user_cubit_1.freezed.dart';
 part 'user_state_1.dart';
 
 class UserCubit1 extends Cubit<UserState1> {
-  UserCubit1(this._userRepository) : super(UserState1Initial());
+  UserCubit1(this._userRepository) : super(UserState1Initial()) {
+    fetchUserCount();
+  }
 
   final UserRepository _userRepository;
+  late User _user;
 
   Future<void> fetchUserCount() async {
     emit(UserState1Loading());
@@ -17,6 +20,13 @@ class UserCubit1 extends Cubit<UserState1> {
     final userAmount = await _userRepository.fetchUserAmount();
 
     emit(UserState1Success(user: User(userCount: userAmount)));
+  }
+
+  // don't do this only example
+  Future<void> setUserName(int newUserCount) async {
+    _user = _user.copyWith(userCount: newUserCount);
+
+    emit(UserState1Success(user: _user));
   }
 
   // mock a failure

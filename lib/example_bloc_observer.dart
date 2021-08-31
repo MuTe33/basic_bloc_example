@@ -23,6 +23,7 @@ class ExampleBlocObserver extends BlocObserver {
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    // log error
     print('onError: $error');
     super.onError(bloc, error, stackTrace);
   }

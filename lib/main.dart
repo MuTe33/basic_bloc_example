@@ -5,10 +5,6 @@ import 'package:basic_bloc_example/feature/shopping_cart_example_bloc/catalog/ca
 import 'package:basic_bloc_example/feature/shopping_cart_example_bloc/shopping_cart_view.dart';
 import 'package:basic_bloc_example/feature/user_example_cubit/variant_1/user_cubit_1.dart';
 import 'package:basic_bloc_example/feature/user_example_cubit/variant_1/user_view_1.dart';
-import 'package:basic_bloc_example/feature/user_example_cubit/variant_2/user_cubit_2.dart';
-import 'package:basic_bloc_example/feature/user_example_cubit/variant_2/user_view_2.dart';
-import 'package:basic_bloc_example/feature/user_example_cubit/variant_3/user_cubit_3.dart';
-import 'package:basic_bloc_example/feature/user_example_cubit/variant_3/user_view_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,13 +24,12 @@ class BlocTestApp extends StatelessWidget {
 
   final UserRepository _userRepository;
 
+  //TODO: use dependency injection
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => UserCubit1(_userRepository)),
-        BlocProvider(create: (_) => UserCubit2(_userRepository)),
-        BlocProvider(create: (_) => UserCubit3(_userRepository)),
         BlocProvider(create: (_) => CartBloc()),
         BlocProvider(create: (_) => CatalogBloc()),
       ],
@@ -75,14 +70,6 @@ class BlocTestAppWidget extends StatelessWidget {
                   OutlinedButton(
                     onPressed: () => _navigator.push(PageVariant1.route()),
                     child: Text('Variant 1'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () => _navigator.push(PageVariant2.route()),
-                    child: Text('Variant 2'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () => _navigator.push(PageVariant3.route()),
-                    child: Text('Variant 3'),
                   ),
                 ],
               ),
